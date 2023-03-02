@@ -1,0 +1,27 @@
+minimum_cumulusci_version: '3.73.0'
+project:
+    name: cci-project
+    package:
+        name: cci_project
+        namespace: cci_project
+        api_version: '55.0'
+    dependencies:
+        - github: 'https://github.com/SalesforceFoundation/NPSP'
+    git:
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/cci-project/tests
+            options:
+                outputdir: robot/cci-project/results
+
+    robot_testdoc:
+        options:
+            path: robot/cci-project/tests
+            output: robot/cci-project/doc/cci-project_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
